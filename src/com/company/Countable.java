@@ -1,12 +1,11 @@
 package com.company;
 
-public interface Countable <T extends Number, S extends Number> {
+public interface Countable<T,S, M,L> {
 
 
-    public default void countDay() {
-    }
+     public void countDay(T t, S s, M m, L l);
 
-    public default void countDaySosedi() {
-
-    }
 }
+
+
+

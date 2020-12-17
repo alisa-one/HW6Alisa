@@ -1,45 +1,49 @@
 package com.company;
 
-public class  Shop <T extends Number, S extends Number>implements Countable {
+public class Shop<M extends Number, L extends Number,T extends Number,
+        S extends Number> implements Countable <T,S, M, L>{
+    private String name;
+    private T rice;
+    private S priceRice;
+    private M flour;
+    private L priceFlour;
 
-    private S brad;
-    private T priceBrad;
-    private S milk;
-    private T priceMilk;
-
-    public S getBrad() {
-        return brad;
+    public  T  getRice() {
+        return rice;
+    }
+    public S getPriceRice() {
+        return priceRice;
+    }
+    public M getFlour() {
+        return flour;
+    }
+     public L getPriceFlour() {
+        return priceFlour;
     }
 
-    public T getPriceBrad() {
-        return priceBrad;
+    public String getName() {
+        return name;
     }
 
-    public S getMilk() {
-        return milk;
-    }
 
-    public T getPriceMilk() {
-        return priceMilk;
+    public Shop(String name, T rice, S priceRice, M  flour, L priceFlour) {
+        this.name = name;
+        this.rice = rice;
+        this.priceRice = priceRice;
+        this.flour = flour;
+        this.priceFlour = priceFlour;
     }
-
-    public Shop (S brad,T priceBrad, S milk, T priceMilk){
-        this.brad=brad;
-        this.priceBrad=priceBrad;
-        this.milk=milk;
-        this.priceMilk=priceMilk;
-
-    }
-    public void countDay(){
-        double result = getBrad().doubleValue()*getPriceBrad().doubleValue()
-                +getMilk().doubleValue()*getPriceMilk().doubleValue();
-        System.out.println("Моя дневная выручка  = "+result);
-    }
-
     @Override
-    public static void countDaySosedi() {
+    public void countDay(T t, S s, M m, L l) {
+        double value = getRice().doubleValue()  * getPriceRice().doubleValue()
+                     + getFlour().doubleValue() * getPriceFlour().doubleValue();
 
+        System.out.println(" Дневная выручка " + name + " = " + value + " сом ");
     }
-
-
 }
+
+
+
+
+
+
